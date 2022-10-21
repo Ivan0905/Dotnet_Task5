@@ -14,6 +14,7 @@ for (int j=0; j<array.Length;j++){
 Console.WriteLine(String.Join("|",array));
 Console.WriteLine($"Колличество четных чисел в массиве равняется {count}");
 */
+/*
 int[] GetArray(int size)
 {
 
@@ -26,23 +27,62 @@ int[] GetArray(int size)
 
     return res;
 }
-
+*/
 //Задача №36 Задайте одномерный массив, заполенный случайными числами,
 //Найдите сумму элементов, стоящих на нечетных позициях
-Console.WriteLine("Введите размер массива");
+/*Console.WriteLine("Введите размер массива");
 int len = int.Parse(Console.ReadLine()!);
-int []array = GetArray(len);
-Console.WriteLine("Сумма чисел нечетных индексов массива "+ String.Join("|",array)+$" равняется {Val(array)}");
+int[] array = GetArray(len);
+Console.WriteLine("Сумма чисел нечетных индексов массива " + String.Join("|", array) + $" равняется {Val(array)}");
 
 
-int Val(int []arr)
-{int sum = 0;
-for (int j=1;j<arr.Length;j=j+2){
-sum = sum+arr[j];
-Console.WriteLine(sum);
+int Val(int[] arr)
+{
+    int sum = 0;
+    for (int j = 1; j < arr.Length; j = j + 2)
+    {
+        sum = sum + arr[j];
+        Console.WriteLine(sum);
+    }
+    return sum;
 }
-return sum;
-}
-
+*/
 //Задача №38 Задайте массив вещественных чисел (просто от минус бесконечности, до плюс бесконечности,
 //с дробнымми не работаем) Найдите разницу между максимальным и минимальным элементов массива.
+Console.WriteLine("Введите размер массива");
+int len = int.Parse(Console.ReadLine()!);
+int[] arr = GetArray1(len);
+Console.WriteLine(String.Join("|",arr));
+Console.WriteLine($"Разница между максимальным и минимальным значением массива составляет {Dif(arr)}");
+
+int[] GetArray1(int size)
+{
+
+    int[] res = new int[size];
+    for (int i = 0; i < res.Length; i++)
+    {
+
+        res[i] = new Random().Next(-10, 10);
+    }
+
+    return res;
+}
+
+int Dif(int[] array)
+{
+
+    int min = 0;
+    int max = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] < array[min])
+        {
+            min = i;
+        }
+        if (array[i] > array[max])
+        {
+            max = i;
+        }
+    }
+    return array[max]-array[min];
+}
